@@ -1,3 +1,4 @@
+<?php
 // CHECK IS ADMIN REQUEST
 function is_admin_request() {
 	$current_url = home_url( add_query_arg( null, null ) );
