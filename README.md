@@ -22,6 +22,7 @@ The solution
 
 With that in mind, the solution has to check for AJAX requests somewhere. The first try of a function to replace the is_admin() calls looked like the following (kindly directly supplied by the user zitrusblau with the issue report):
 
+```
 <?php
 function is_admin_request() {
 	if ( function_exists( 'wp_doing_ajax' ) ) {
@@ -30,5 +31,5 @@ function is_admin_request() {
 		return is_admin() && ! ( defined( 'DOING_AJAX' ) && DOING_AJAX );
 	}
 }
-
+```
 That worked for the front end, but the same user later found a new issue with that: the plugin now lazy loads the post thumbnail feature in the backend. With that, a newly chosen featured image did not show up in the meta box directly, but only after saving the post.
